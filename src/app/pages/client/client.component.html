@@ -2,7 +2,12 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <p>client works!!</p>
+                <h1>client works!!</h1>
+                <div class="card-columns" *ngIf="clients.length > 0">
+                    <div *ngFor="let client of clients">
+                        <p>{{ client.id }} - {{ client.name }}</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

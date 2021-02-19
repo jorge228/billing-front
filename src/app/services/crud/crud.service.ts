@@ -13,8 +13,9 @@ export class CrudService extends ApiService {
     super(http);
   }
 
+  //TODO pagination
   list(model: string): Observable<ApiResponse> {
     return this.http.get<ApiResponse>(`${this.baseUrl}${model}`, { headers: this.getHeaders() });
   }
-  
+
 }

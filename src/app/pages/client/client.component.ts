@@ -8,6 +8,7 @@ import { CrudService } from '../../services/crud/crud.service';
 export class ClientComponent implements OnInit {
 
   public model: string = 'clients';
+  public clients: any[] = [];
 
   constructor(private crudService: CrudService) { }
 
@@ -19,6 +20,8 @@ export class ClientComponent implements OnInit {
     this.crudService.list(this.model)
       .subscribe((resp: any) => {
         console.log(resp);
+        this.clients = resp.data;
+        console.log(this.clients);
       });
   }
 
