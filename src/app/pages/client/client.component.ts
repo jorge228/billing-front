@@ -7,6 +7,8 @@ import { CrudService } from '../../services/crud/crud.service';
 })
 export class ClientComponent implements OnInit {
 
+  public model: string = 'clients';
+
   constructor(private crudService: CrudService) { }
 
   ngOnInit(): void {
@@ -14,7 +16,7 @@ export class ClientComponent implements OnInit {
   }
 
   getData() {
-    this.crudService.list()
+    this.crudService.list(this.model)
       .subscribe((resp: any) => {
         console.log(resp);
       });

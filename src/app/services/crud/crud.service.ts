@@ -13,8 +13,8 @@ export class CrudService extends ApiService {
     super(http);
   }
 
-  // TODO send model and change it in environment url
-  list(): Observable<ApiResponse> {
-    return this.http.get<ApiResponse>(this.baseUrl, { headers: this.getHeaders() });
+  list(model: string): Observable<ApiResponse> {
+    return this.http.get<ApiResponse>(`${this.baseUrl}${model}`, { headers: this.getHeaders() });
   }
+  
 }
