@@ -3,13 +3,14 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import { SharedModule } from '../shared/shared.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PagesComponent } from './pages.component';
-import { ClientComponent } from './client/client.component';
+
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
-
-
+import { ClientComponent } from './client/client.component';
+import { ClientCreateUpdateComponent } from './client/client-create-update/client-create-update.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
     DashboardComponent,
     PagesComponent,
     ClientComponent,
-    AccountSettingsComponent
+    AccountSettingsComponent,
+    ClientCreateUpdateComponent
   ],
   exports: [
     DashboardComponent,
@@ -28,7 +30,9 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
   imports: [
     CommonModule,
     SharedModule,
-    RouterModule
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class PagesModule { }

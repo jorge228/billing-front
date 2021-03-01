@@ -1,12 +1,40 @@
 <div class="row">
     <div class="col-12">
         <div class="card">
-            <div class="card-body">
+            <!-- <div class="card-body">
                 <h1>client works!!</h1>
                 <div class="card-columns" *ngIf="clients.length > 0">
                     <div *ngFor="let client of clients">
                         <p>{{ client.id }} - {{ client.name }}</p>
                     </div>
+                </div>
+            </div> -->
+            <div class="card-body">
+                <button type="button" class="btn btn-info btn-circle btn-lg" (click)="goToCreate()"><i class="fa fa-plus"></i> </button>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Cif</th>
+                                <th>Name</th>
+                                <th>Created At</th>
+                                <th class="text-nowrap">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let client of clients">
+                                <td>{{ client.id }}</td>
+                                <td>{{ client.cif }}</td>
+                                <td>{{ client.name }}</td>
+                                <td>{{ client.createdAt }}</td>
+                                <td class="text-nowrap">
+                                    <a data-toggle="tooltip" data-original-title="Edit" (click)="goToEdit(client.id)"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
+                                    <a href="#" data-toggle="tooltip" data-original-title="Close"> <i class="fa fa-close text-danger"></i> </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

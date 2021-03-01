@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CrudService } from '../../services/crud/crud.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-client',
@@ -8,9 +9,10 @@ import { CrudService } from '../../services/crud/crud.service';
 export class ClientComponent implements OnInit {
 
   public model: string = 'clients';
+  public entity: string = 'client';
   public clients: any[] = [];
 
-  constructor(private crudService: CrudService) { }
+  constructor(private crudService: CrudService, private router: Router) { }
 
   ngOnInit(): void {
     this.getData();
@@ -23,6 +25,14 @@ export class ClientComponent implements OnInit {
         this.clients = resp.data;
         console.log(this.clients);
       });
+  }
+
+  goToCreate() {
+    this.router.navigate([`/dashboard/${this.entity}/create`]);
+  }
+
+  goToEdit(id: string) {
+    this.router.navigate([`/dashboard/${this.entity}/update/${id}`]);
   }
 
 }
