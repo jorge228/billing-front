@@ -30,7 +30,7 @@
                                 <td>{{ client.createdAt }}</td>
                                 <td class="text-nowrap">
                                     <a data-toggle="tooltip" data-original-title="Edit" (click)="goToEdit(client.id)"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
-                                    <a href="#" data-toggle="tooltip" data-original-title="Close"> <i class="fa fa-close text-danger"></i> </a>
+                                    <a data-toggle="tooltip" data-original-title="Close" (click)="deleteClient(client.id)"> <i class="fa fa-close text-danger"></i> </a>
                                 </td>
                             </tr>
                         </tbody>

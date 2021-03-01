@@ -35,4 +35,12 @@ export class ClientComponent implements OnInit {
     this.router.navigate([`/dashboard/${this.entity}/update/${id}`]);
   }
 
+  deleteClient(id: number) {
+    this.crudService.delete(this.model, id).
+      subscribe((response) => {
+        //return true or false
+        this.getData();
+      });
+  }
+
 }

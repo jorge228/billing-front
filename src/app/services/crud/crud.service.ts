@@ -30,4 +30,8 @@ export class CrudService extends ApiService {
     return this.http.put<ApiResponse>(`${this.baseUrl}${model}/${id}`, data, { headers: this.getHeaders() });
   }
 
+  delete(model: string, id: number): Observable<ApiResponse> {
+    return this.http.delete<ApiResponse>(`${this.baseUrl}${model}/${id}`, {headers: this.getHeaders()});
+  }
+
 }
