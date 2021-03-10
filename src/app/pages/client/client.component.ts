@@ -51,7 +51,8 @@ export class ClientComponent implements OnInit {
         this.crudService.delete(this.model, id).
           subscribe((response) => {
             //return true or false
-            this.getData();
+            this.clients = this.clients.filter(c => c.id !== id);
+            // this.getData();
           });
         Swal.fire(
           'Deleted!',
