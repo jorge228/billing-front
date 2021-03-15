@@ -6,7 +6,6 @@ import { ApiResponse } from '../../interfaces/api-response';
 import { catchError } from 'rxjs/operators';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
-import { Location } from '@angular/common'
 
 @Injectable({
   providedIn: 'root'
