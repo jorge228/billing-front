@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CrudService } from '../../../services/crud/crud.service';
+import Swal from 'sweetalert2';
 
 const model: string = 'clients';
 const entity: string = 'client';
@@ -62,16 +63,18 @@ export class ClientCreateUpdateComponent implements OnInit {
   create() {
     const data = this.form.value;
     this.crudService.create(model, data).
-      subscribe(() => {
+      subscribe((resp) => {
         this.goToList();
+        Swal.fire('Well done!', `Client '${resp.data.name}' was created successfully.` , 'success');
       });
   }
 
   update() {
     const data = this.form.value;
     this.crudService.update(model, data, this.id).
-      subscribe(() => {
+      subscribe((resp) => {
         this.goToList();
+        Swal.fire('Well done!', `Client '${resp.data.name}' was updated successfully.` , 'success');
       });
   }
 

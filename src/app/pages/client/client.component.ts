@@ -49,16 +49,10 @@ export class ClientComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         this.crudService.delete(this.model, id).
-          subscribe((response) => {
-            //return true or false
+          subscribe(() => {
             this.clients = this.clients.filter(c => c.id !== id);
-            // this.getData();
           });
-        Swal.fire(
-          'Deleted!',
-          'Client has been deleted.',
-          'success'
-        );
+        Swal.fire('Well done!','Client was deleted successfully.','success');
       }
     });
   }
