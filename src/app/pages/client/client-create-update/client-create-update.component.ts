@@ -48,7 +48,7 @@ export class ClientCreateUpdateComponent implements OnInit {
   }
 
   goToList() {
-    this.router.navigate(['/dashboard/' + entity]);
+    this.router.navigate(['/dashboard/' + model]);
   }
 
   save() {

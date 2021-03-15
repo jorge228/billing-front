@@ -33,7 +33,7 @@ export class ClientComponent implements OnInit {
   }
 
   goToEdit(id: string) {
-    this.router.navigate([`/dashboard/${this.entity}/update/${id}`]);
+    this.router.navigate([`/dashboard/${this.entity}/update/200`]);
   }
 
   deleteClient(id: number) {
