@@ -49,7 +49,7 @@ export class ClientCreateUpdateComponent implements OnInit {
   }
 
   goToList() {
-    this.router.navigate(['/dashboard/' + model]);
+    this.router.navigate([`/dashboard/${model}/page/0`]);
   }
 
   save() {

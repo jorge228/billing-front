@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CrudService } from '../../services/crud/crud.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -12,19 +12,24 @@ export class ClientComponent implements OnInit {
   public model: string = 'clients';
   public entity: string = 'client';
   public clients: any[] = [];
+  public page: number = null;
 
-  constructor(private crudService: CrudService, private router: Router) { }
+  constructor(private crudService: CrudService, private router: Router, private _activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.checkParams();
     this.getData();
   }
 
+  checkParams() {
+    this.page = this._activatedRoute.snapshot.params.page;
+  }
+
   getData() {
-    this.crudService.list(this.model)
+    this.crudService.paginationList(this.model, this.page)
       .subscribe((resp: any) => {
         console.log(resp);
-        this.clients = resp.data;
-        console.log(this.clients);
+        this.clients = resp.content;
       });
   }
 
@@ -33,11 +38,10 @@ export class ClientComponent implements OnInit {
   }
 
   goToEdit(id: string) {
-    this.router.navigate([`/dashboard/${this.entity}/update/200`]);
+    this.router.navigate([`/dashboard/${this.entity}/update/${id}`]);
   }
 
   deleteClient(id: number) {
-    //TODO if response true, then show swal.fire
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",

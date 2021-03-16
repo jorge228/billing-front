@@ -13,6 +13,7 @@ const routes: Routes = [
         children: [
             { path: '', component: DashboardComponent, data: { title: 'Dashboard' } },
             { path: 'clients', component: ClientComponent, data: { title: 'Clients' } },
+            { path: 'clients/page/:page', component: ClientComponent, data: { title: 'Clients' } },
             { path: 'client/create', component: ClientCreateUpdateComponent, data: { title: 'Create Client' } },
             { path: 'client/update/:id', component: ClientCreateUpdateComponent, data: { title: 'Update Client' } },
             { path: 'account-settings', component: AccountSettingsComponent, data: { title: 'Settings' } },
