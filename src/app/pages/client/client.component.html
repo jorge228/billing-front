@@ -2,39 +2,78 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <button type="button" class="btn waves-effect waves-light btn-rounded btn-info"
-                    (click)="goToCreate()"><i class="fa fa-plus"></i> Add Client</button>
-                <div class="alert alert-info alert-rounded mt-5" *ngIf="clients?.length == 0">Sorry, but there are no
-                    clients yet.
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span
-                            aria-hidden="true">×</span> </button>
-                </div>
-                <div class="table-responsive" *ngIf="clients?.length > 0">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>Id</th>
-                                <th>Cif</th>
-                                <th>Name</th>
-                                <th>Created At</th>
-                                <th class="text-nowrap">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let client of clients">
-                                <td>{{ client.id }}</td>
-                                <td>{{ client.cif }}</td>
-                                <td>{{ client.name }}</td>
-                                <td>{{ client.createdAt }}</td>
-                                <td class="text-nowrap">
-                                    <a data-toggle="tooltip" data-original-title="Edit" (click)="goToEdit(client.id)">
-                                        <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
-                                    <a data-toggle="tooltip" data-original-title="Delete"
-                                        (click)="deleteClient(client.id)"> <i class="fa fa-close text-danger"></i> </a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <!-- <h4 class="card-title">Data Export</h4>
+                <h6 class="card-subtitle">Export data to Copy, CSV, Excel, PDF &amp; Print</h6> -->
+                <div class="table-responsive m-t-40">
+                    <div id="example23_wrapper" class="dataTables_wrapper">
+                        <div class="dt-buttons">
+                            <a class="dt-button buttons-html5 pointer" tabindex="0" (click)="goToCreate()">
+                                <span><i class="fa fa-plus"></i> Add Client</span></a>
+                            <a class="dt-button buttons-copy buttons-html5" tabindex="0" aria-controls="example23"
+                                href="#"><span>Copy</span></a>
+                            <a class="dt-button buttons-csv buttons-html5" tabindex="0" aria-controls="example23"
+                                href="#"><span>CSV</span></a>
+                            <a class="dt-button buttons-excel buttons-html5" tabindex="0" aria-controls="example23"
+                                href="#"><span>Excel</span></a><a class="dt-button buttons-pdf buttons-html5"
+                                tabindex="0" aria-controls="example23" href="#"><span>PDF</span></a>
+                            <a class="dt-button buttons-print" tabindex="0" aria-controls="example23"
+                                href="#"><span>Print</span></a>
+                        </div>
+                        <div id="example23_filter" class="dataTables_filter"><label>Search:<input type="search" class=""
+                                    placeholder="" aria-controls="example23"></label></div>
+                        <table id="example23"
+                            class="display nowrap table table-hover table-striped table-bordered dataTable"
+                            cellspacing="0" width="100%" role="grid" aria-describedby="example23_info"
+                            style="width: 100%;">
+                            <thead>
+                                <tr role="row">
+                                    <th class="sorting_asc" tabindex="0" aria-controls="example23" rowspan="1"
+                                        colspan="1" aria-sort="ascending"
+                                        aria-label="Name: activate to sort column descending" style="width: 226px;">ID
+                                    </th>
+                                    <th class="sorting" tabindex="0" aria-controls="example23" rowspan="1" colspan="1"
+                                        aria-label="Position: activate to sort column ascending" style="width: 333px;">
+                                        CIF</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example23" rowspan="1" colspan="1"
+                                        aria-label="Office: activate to sort column ascending" style="width: 169px;">
+                                        Name</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example23" rowspan="1" colspan="1"
+                                        aria-label="Age: activate to sort column ascending" style="width: 89px;">Created
+                                        At</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example23" rowspan="1" colspan="1"
+                                        aria-label="Start date: activate to sort column ascending"
+                                        style="width: 158px;">Action
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th rowspan="1" colspan="1">ID</th>
+                                    <th rowspan="1" colspan="1">CIF</th>
+                                    <th rowspan="1" colspan="1">Name</th>
+                                    <th rowspan="1" colspan="1">Created At</th>
+                                    <th rowspan="1" colspan="1">Action</th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                <tr *ngFor="let client of clients" role="row" class="odd">
+                                    <td class="sorting_1">{{ client.id }}</td>
+                                    <td>{{ client.cif }}</td>
+                                    <td>{{ client.name }}</td>
+                                    <td>{{ client.createdAt }}</td>
+                                    <td class="text-nowrap">
+                                        <a data-toggle="tooltip" data-original-title="Edit"
+                                            (click)="goToEdit(client.id)">
+                                            <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
+                                        <a data-toggle="tooltip" data-original-title="Delete"
+                                            (click)="deleteClient(client.id)"> <i class="fa fa-close text-danger"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <app-paginator *ngIf="paginator" [paginator]="paginator" [model]="model"></app-paginator>
+                    </div>
                 </div>
             </div>
         </div>

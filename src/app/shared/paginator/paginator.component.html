@@ -1,0 +1,20 @@
+<div *ngIf="pages?.length > 0" class="dataTables_info" role="status" aria-live="polite">Showing
+    {{paginator.pageable.offset + 1}} to
+    {{paginator.pageable.offset + paginator.pageable.pageSize}} of {{paginator.totalElements}}
+    {{model}}</div>
+<div *ngIf="pages?.length > 0" class="dataTables_paginate paging_simple_numbers">
+    <a (click)="goToPage(0)" class="paginate_button previous" [ngClass]="paginator.number == 0?'disabled':''"
+        aria-controls="example23" data-dt-idx="0" tabindex="0">&laquo;</a>
+    <a (click)="goToPage(paginator.number)" class="paginate_button previous"
+        [ngClass]="paginator.number == 0?'disabled':''" aria-controls="example23" data-dt-idx="0"
+        tabindex="0">Previous</a>
+    <span><a *ngFor="let page of pages" (click)="goToPage(page)" class="paginate_button"
+            [ngClass]="paginator.number == page - 1 ?'current':''" aria-controls="example23" data-dt-idx="1"
+            tabindex="0">{{page}}</a></span>
+    <a (click)="goToPage(paginator.number + 2)" class="paginate_button next"
+        [ngClass]="paginator.number == paginator.totalPages - 1 ?'disabled':''" aria-controls="example23"
+        data-dt-idx="7" tabindex="0">Next</a>
+    <a (click)="goToPage(paginator.totalPages)" class="paginate_button previous"
+        [ngClass]="paginator.number == 0?'disabled':''" aria-controls="example23" data-dt-idx="0"
+        tabindex="0">&raquo;</a>
+</div>

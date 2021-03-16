@@ -9,3 +9,7 @@
 #themecolors .selector {
   cursor: pointer;
 }
+
+.pointer {
+  cursor:pointer;
+}

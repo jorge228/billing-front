@@ -13,23 +13,27 @@ export class ClientComponent implements OnInit {
   public entity: string = 'client';
   public clients: any[] = [];
   public page: number = null;
+  public paginator: any;
 
   constructor(private crudService: CrudService, private router: Router, private _activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.checkParams();
-    this.getData();
   }
 
   checkParams() {
-    this.page = this._activatedRoute.snapshot.params.page;
+    this._activatedRoute.paramMap.subscribe(() => {
+      this.page = this._activatedRoute.snapshot.params.page;
+      this.getData();
+    });
   }
 
   getData() {
     this.crudService.paginationList(this.model, this.page)
       .subscribe((resp: any) => {
-        console.log(resp);
+        // console.log(resp);
         this.clients = resp.content;
+        this.paginator = resp;
       });
   }
 
@@ -56,7 +60,7 @@ export class ClientComponent implements OnInit {
           subscribe(() => {
             this.clients = this.clients.filter(c => c.id !== id);
           });
-        Swal.fire('Well done!','Client was deleted successfully.','success');
+        Swal.fire('Well done!', 'Client was deleted successfully.', 'success');
       }
     });
   }
