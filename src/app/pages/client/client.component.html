@@ -2,9 +2,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <!-- <h4 class="card-title">Data Export</h4>
-                <h6 class="card-subtitle">Export data to Copy, CSV, Excel, PDF &amp; Print</h6> -->
-                <div class="table-responsive m-t-40">
+                <div class="table-responsive">
                     <div id="example23_wrapper" class="dataTables_wrapper">
                         <div class="dt-buttons">
                             <a class="dt-button buttons-html5 pointer" tabindex="0" (click)="goToCreate()">
@@ -46,15 +44,6 @@
                                     </th>
                                 </tr>
                             </thead>
-                            <!-- <tfoot>
-                                <tr>
-                                    <th rowspan="1" colspan="1">ID</th>
-                                    <th rowspan="1" colspan="1">CIF</th>
-                                    <th rowspan="1" colspan="1">Name</th>
-                                    <th rowspan="1" colspan="1">Created At</th>
-                                    <th rowspan="1" colspan="1">Action</th>
-                                </tr>
-                            </tfoot> -->
                             <tbody>
                                 <tr *ngFor="let client of clients" role="row" class="odd">
                                     <td class="sorting_1">{{ client.id }}</td>
