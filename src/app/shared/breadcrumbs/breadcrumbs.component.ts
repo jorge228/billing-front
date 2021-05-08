@@ -19,7 +19,7 @@ export class BreadcrumbsComponent implements OnInit, OnDestroy {
     this.titleSubs$ = this.getDataRoute()
       .subscribe(({ title }) => {
         this.title = title;
-        document.title = `AdminPro - ${title}`;
+        document.title = `BillingApp - ${title}`;
       });
   }
   ngOnDestroy(): void {

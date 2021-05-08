@@ -11,6 +11,8 @@ import { PagesComponent } from './pages.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { ClientComponent } from './client/client.component';
 import { ClientCreateUpdateComponent } from './client/client-create-update/client-create-update.component';
+import { UserComponent } from './user/user.component';
+import { UserCreateUpdateComponent } from './user/user-create-update/user-create-update.component';
 
 
 @NgModule({
@@ -18,6 +20,8 @@ import { ClientCreateUpdateComponent } from './client/client-create-update/clien
     DashboardComponent,
     PagesComponent,
     ClientComponent,
+    UserComponent,
+    UserCreateUpdateComponent,
     AccountSettingsComponent,
     ClientCreateUpdateComponent
   ],
@@ -25,6 +29,8 @@ import { ClientCreateUpdateComponent } from './client/client-create-update/clien
     DashboardComponent,
     PagesComponent,
     ClientComponent,
+    UserComponent,
+    UserCreateUpdateComponent,
     AccountSettingsComponent
   ],
   imports: [

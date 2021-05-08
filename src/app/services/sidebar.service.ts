@@ -12,6 +12,7 @@ export class SidebarService {
       submenu: [
         { title: 'Main', url: '/' },
         { title: 'Clients', url: 'clients/page/0' },
+        { title: 'Users', url: 'users' },
       ]
     }
   ];
