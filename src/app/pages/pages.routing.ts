@@ -6,6 +6,7 @@ import { ClientComponent } from './client/client.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { ClientCreateUpdateComponent } from './client/client-create-update/client-create-update.component';
 import { UserComponent } from './user/user.component';
+import { UserCreateUpdateComponent } from './user/user-create-update/user-create-update.component';
 
 const routes: Routes = [
     {
@@ -18,6 +19,9 @@ const routes: Routes = [
             { path: 'client/create', component: ClientCreateUpdateComponent, data: { title: 'Create Client' } },
             { path: 'client/update/:id', component: ClientCreateUpdateComponent, data: { title: 'Update Client' } },
             { path: 'users', component: UserComponent, data: { title: 'Users' } },
+            { path: 'users/page/:page', component: UserComponent, data: { title: 'User' } },
+            { path: 'user/create', component: UserCreateUpdateComponent, data: { title: 'Create User' } },
+            { path: 'user/update/:id', component: UserCreateUpdateComponent, data: { title: 'Update User' } },
             { path: 'account-settings', component: AccountSettingsComponent, data: { title: 'Settings' } },
         ]
     },
